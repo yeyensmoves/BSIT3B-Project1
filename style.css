@@ -581,54 +581,81 @@ h3 {
     transform: scaleX(var(--v));
 }
 
-/* 9. PROJECTS SECTION */
 
-/* Projects grid */
-.projects {
+/* =====================================
+   16. HOBBIES SECTION
+===================================== */
+
+.hobbies {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1rem, 2.5vw, 2rem);
+    gap: 1.5rem;
 }
 
-/* Project photo */
-.project .ph {
-    aspect-ratio: 4 / 3;
-    filter: grayscale(.9) contrast(1.05);
-    transition: filter .6s ease;
-}
-
-/* Restore color on hover or keyboard focus */
-.project:hover .ph,
-.project:focus-within .ph,
-.project:focus .ph {
-    filter: none;
-}
-
-/* Project title */
-.project h3 {
-    font-size: 1.7rem;
-    margin: .9rem 0 .25rem;
-}
-
-/* Project description */
-.project p {
-    font-size: .98rem;
-}
-
-
-/* Project GIF Images */
-.project .ph {
-    aspect-ratio: 4 / 3;
+/* Individual Hobby Card */
+.hobby {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(22, 24, 26, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
     overflow: hidden;
-    filter: grayscale(.9) contrast(1.05);
-    transition: filter .6s ease;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 }
 
-.project .ph img {
+/* Hobby Image */
+.hobby-image {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 220px;
     object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1.2rem;
+
+    transition: transform .4s ease;
+}
+
+/* Hobby Title */
+.hobby h3 {
+    font-size: 1.8rem;
+    margin-bottom: .8rem;
+}
+
+/* Hobby Description */
+.hobby p {
+    font-size: .95rem;
+    line-height: 1.6;
+}
+
+/* Hover Effects */
+.hobby:hover,
+.hobby:focus {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+.hobby:hover .hobby-image {
+    transform: scale(1.03);
+}
+
+/* Tablet */
+@media (max-width: 820px) {
+    .hobbies {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+    .hobbies {
+        grid-template-columns: 1fr;
+    }
+
+    .hobby-image {
+        height: 220px;
+    }
 }
 
 /* Restore GIF colors on hover */
